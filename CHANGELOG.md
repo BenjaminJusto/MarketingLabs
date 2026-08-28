@@ -8,6 +8,16 @@ La nomenclatura sigue el formato `vMAJOR.MINOR.PATCH`:
 - **MINOR**: nueva funcionalidad, sección o evolución relevante.
 - **PATCH**: corrección o ajuste menor sin cambiar la arquitectura.
 
+## v3.6.0 — Hero interactivo por perfil
+**28 de agosto de 2026**
+
+- Hero personalizado para Early Marketers, Business Leaders y Strategic Marketers.
+- Cada perfil modifica el caso, métricas, contexto y decisión del dashboard.
+- CTA del hero conecta directamente con el catálogo filtrado por perfil.
+- Reemplazo del bloque Case-Based / Data-Driven / Business-First / Decision-Oriented por áreas académicas.
+- Nuevo bloque de áreas: Estrategia & Growth, Data & Analytics, Cliente & CRM, Marca, Producto & Pricing y Performance & Finanzas.
+- Cambio de encabezado de perfiles a **Cursos especializados en 3 perfiles**.
+
 ## v3.5.1 — CTA móvil del ecosistema
 **28 de agosto de 2026**
 
