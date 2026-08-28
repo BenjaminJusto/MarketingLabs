@@ -54,8 +54,19 @@
           Educación aplicada para profesionales de marketing y líderes de negocio.
           Cada curso combina casos empresariales, datasets, análisis y decisiones con impacto real en el negocio.
         </p>
+
+        <div class="hero-profile-selector" aria-label="Selecciona tu perfil">
+          <span class="profile-prompt">¿Cuál es tu perfil?</span>
+          <div class="profile-options">
+            <button class="profile-option active" type="button" data-hero-profile="early">Early Marketers</button>
+            <button class="profile-option" type="button" data-hero-profile="leaders">Business Leaders</button>
+            <button class="profile-option" type="button" data-hero-profile="strategic">Strategic Marketers</button>
+          </div>
+          <p class="profile-context" id="heroProfileContext">Construye criterio estratégico y una base sólida para tomar mejores decisiones de marketing.</p>
+        </div>
+
         <div class="actions">
-          <a class="btn primary" href="#cursos">Explorar cursos</a>
+          <a class="btn primary" id="heroCourseCta" href="#cursos">Ver cursos para Early Marketers</a>
           <a class="btn ghost" href="#metodologia">Conocer el método EBC</a>
         </div>
       </div>
@@ -65,22 +76,22 @@
           <div class="lab-window-top">
             <span class="live-dot"></span>
             <span>Caso en análisis</span>
-            <small>MARKETING PERFORMANCE</small>
+            <small id="heroCaseArea">ESTRATEGIA DE MARKETING</small>
           </div>
 
-          <div class="case-question">¿Aumentarías el presupuesto de marketing 25%?</div>
+          <div class="case-question" id="heroCaseQuestion">¿Qué segmento debería priorizar la marca?</div>
 
-          <div class="data-grid">
-            <div class="data-cell"><span>Ventas</span><strong>-10%</strong></div>
-            <div class="data-cell"><span>Conversión</span><strong>8%</strong></div>
-            <div class="data-cell"><span>CAC</span><strong>$100</strong></div>
-            <div class="data-cell"><span>Meta</span><strong>+25%</strong></div>
+          <div class="data-grid" id="heroDataGrid">
+            <div class="data-cell"><span>Segmento A</span><strong>42%</strong></div>
+            <div class="data-cell"><span>Crecimiento</span><strong>+18%</strong></div>
+            <div class="data-cell"><span>Margen</span><strong>24%</strong></div>
+            <div class="data-cell"><span>Competidores</span><strong>7</strong></div>
           </div>
 
-          <div class="mini-chart" aria-hidden="true">
-            <div class="chart-row"><span>Leads</span><i style="--bar:82%"></i><b>5,750</b></div>
-            <div class="chart-row"><span>Conversión</span><i style="--bar:48%"></i><b>8%</b></div>
-            <div class="chart-row"><span>Margen</span><i style="--bar:64%"></i><b>10%</b></div>
+          <div class="mini-chart" id="heroMiniChart" aria-hidden="true">
+            <div class="chart-row"><span>Atractivo</span><i style="--bar:82%"></i><b>82</b></div>
+            <div class="chart-row"><span>Fit</span><i style="--bar:67%"></i><b>67</b></div>
+            <div class="chart-row"><span>Margen</span><i style="--bar:58%"></i><b>58</b></div>
           </div>
 
           <div class="analysis-steps">
@@ -89,18 +100,20 @@
 
           <div class="decision-card">
             <small>DECISIÓN</small>
-            <strong>Primero recuperar conversión.</strong>
-            <span>Más presupuesto no corrige un funnel que ya perdió eficiencia.</span>
+            <strong id="heroDecisionTitle">Priorizar el segmento con mejor equilibrio.</strong>
+            <span id="heroDecisionText">El mayor mercado no siempre es el segmento más atractivo para competir.</span>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="principles">
-      <div class="principle"><b>Case-Based</b><span>El problema aparece antes que la teoría.</span></div>
-      <div class="principle"><b>Data-Driven</b><span>Los argumentos se sustentan con datos.</span></div>
-      <div class="principle"><b>Business-First</b><span>Marketing conectado con ventas y rentabilidad.</span></div>
-      <div class="principle"><b>Decision-Oriented</b><span>El objetivo no es calcular: es decidir.</span></div>
+    <div class="academic-strip">
+      <span class="academic-strip-label">Áreas académicas</span>
+      <div class="academic-area">Estrategia & Growth</div>
+      <div class="academic-area">Data & Analytics</div>
+      <div class="academic-area">Cliente & CRM</div>
+      <div class="academic-area">Marca, Producto & Pricing</div>
+      <div class="academic-area">Performance & Finanzas</div>
     </div>
   </div>
 </section>
@@ -108,10 +121,9 @@
 <section id="publicos">
   <div class="container">
     <div class="head">
-      <h2>Tres públicos.<br>Tres niveles de decisión.</h2>
+      <h2>Cursos especializados<br>en 3 perfiles.</h2>
       <p>
-        El contenido cambia según el momento profesional: construir criterio, dirigir marketing desde el negocio
-        o liderar decisiones estratégicas de mayor complejidad.
+        Elige el nivel que mejor corresponde a tu experiencia y al tipo de decisiones que necesitas tomar.
       </p>
     </div>
 
