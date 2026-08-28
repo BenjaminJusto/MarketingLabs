@@ -57,3 +57,28 @@ document.getElementById("closeModal").addEventListener("click",closeModal);
 modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
 render();
+
+
+/* V4 — subtle reveal animations */
+const revealObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("is-visible");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:.12,rootMargin:"0px 0px -35px 0px"});
+
+function observeReveals(root=document){
+  root.querySelectorAll(".principle,.aud-card,.method-step,.path,.course,.case,.faculty-copy,.faculty-model,.division").forEach((el,i)=>{
+    if(el.dataset.revealReady) return;
+    el.dataset.revealReady="1";
+    el.classList.add("reveal");
+    el.style.transitionDelay=Math.min((i%4)*70,210)+"ms";
+    revealObserver.observe(el);
+  });
+}
+observeReveals();
+
+const courseMutationObserver=new MutationObserver(()=>observeReveals(grid));
+courseMutationObserver.observe(grid,{childList:true});
