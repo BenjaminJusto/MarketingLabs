@@ -235,13 +235,36 @@
     </div>
 
     <div class="course-tools">
-      <div class="filters">
-        <button class="filter active" data-f="all">Todos</button>
-        <button class="filter" data-f="early">Early Marketers</button>
-        <button class="filter" data-f="leaders">Business Leaders</button>
-        <button class="filter" data-f="strategic">Strategic Marketers</button>
+      <div class="course-filter-group">
+        <label class="filter-field">
+          <span>Por perfil</span>
+          <select id="profileFilter">
+            <option value="all">Todos los perfiles</option>
+            <option value="early">Early Marketers</option>
+            <option value="leaders">Business Leaders</option>
+            <option value="strategic">Strategic Marketers</option>
+          </select>
+        </label>
+
+        <label class="filter-field">
+          <span>Por área</span>
+          <select id="areaFilter">
+            <option value="all">Todas las áreas</option>
+            <option value="strategy">Estrategia & Growth</option>
+            <option value="data">Data & Analytics</option>
+            <option value="customer">Cliente & CRM</option>
+            <option value="value">Marca, Producto & Pricing</option>
+            <option value="performance">Performance & Finanzas</option>
+          </select>
+        </label>
+
+        <button class="clear-filters" id="clearFilters" type="button">Limpiar filtros</button>
       </div>
-      <span id="courseCount" class="count"></span>
+
+      <div class="catalog-meta">
+        <span id="courseCount" class="count"></span>
+        <button class="show-all" id="showAllCourses" type="button">Ver todos los cursos</button>
+      </div>
     </div>
 
     <div class="courses" id="courseGrid"></div>
