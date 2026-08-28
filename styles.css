@@ -797,3 +797,29 @@ footer{padding:34px 0 44px;color:#7B8493;font-size:13px;background:#fff;margin-t
   .parent-brand-copy b{font-size:34px}
   .parent-brand-cubes{transform:scale(.9);transform-origin:right center}
 }
+
+
+/* Responsive header CTA */
+.navcta-mobile{display:none}
+@media(max-width:980px){
+  .navcta-desktop{display:none}
+  .navcta-mobile{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:40px;
+    padding:8px 12px;
+    font-size:12px;
+    line-height:1.1;
+    text-align:center;
+    white-space:nowrap;
+  }
+}
+@media(max-width:430px){
+  .nav{gap:10px}
+  .brand-logo{width:116px}
+  .navcta-mobile{
+    padding:8px 10px;
+    font-size:11px;
+  }
+}
