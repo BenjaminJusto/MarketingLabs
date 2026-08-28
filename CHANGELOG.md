@@ -8,6 +8,14 @@ La nomenclatura sigue el formato `vMAJOR.MINOR.PATCH`:
 - **MINOR**: nueva funcionalidad, sección o evolución relevante.
 - **PATCH**: corrección o ajuste menor sin cambiar la arquitectura.
 
+## v3.5.1 — CTA móvil del ecosistema
+**28 de agosto de 2026**
+
+- En desktop se mantiene el acceso **Programas**.
+- En móvil, el CTA principal cambia a **Conoce más de Marketing Labs**.
+- El nuevo CTA móvil dirige directamente a la sección del ecosistema de marcas.
+- Ajuste responsive del header para pantallas pequeñas.
+
 ## v3.5.0 — Sistema oficial de marca
 **28 de agosto de 2026**
 
