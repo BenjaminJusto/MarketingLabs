@@ -37,9 +37,10 @@ button{font:inherit}
 
 .topbar{
   position:sticky;top:0;z-index:100;
-  background:rgba(6,18,58,.88);
+  background:var(--brand);
   backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--line);
+  border-bottom:1px solid rgba(255,255,255,.18);
+  box-shadow:0 10px 30px rgba(0,31,120,.20);
 }
 .nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .brand{display:flex;align-items:center;min-width:max-content}
@@ -47,22 +48,24 @@ button{font:inherit}
   display:block;
   width:156px;
   height:auto;
-  border-radius:8px;
-  box-shadow:0 8px 22px rgba(0,0,0,.16);
+  border-radius:0;
+  box-shadow:none;
 }
-.menu{display:flex;gap:22px;color:#C4D0EC;font-size:14px;font-weight:650}
+.menu{display:flex;gap:22px;color:rgba(255,255,255,.84);font-size:14px;font-weight:650}
 .menu a:hover{color:#fff}
 .navcta{
   padding:10px 15px;border-radius:999px;
-  background:var(--brand);color:#fff;
+  background:#fff;color:var(--brand);
+  border:1px solid #fff;
   font-size:13px;font-weight:850;
-  box-shadow:0 10px 24px rgba(0,59,225,.28)
+  box-shadow:0 10px 24px rgba(0,0,0,.14)
 }
 
 .hero{
-  padding:98px 0 62px;
+  padding:98px 0 66px;
   background:
-    linear-gradient(180deg,rgba(0,59,225,.08),transparent 70%);
+    linear-gradient(180deg,var(--brand) 0%,#07309A 9%,#0A205F 30%,rgba(6,18,58,0) 78%);
+  position:relative;
 }
 .kicker{
   display:inline-flex;align-items:center;gap:8px;
@@ -318,10 +321,8 @@ footer{padding:34px 0 44px;color:#8EA0C7;font-size:13px}
   .section-dark{padding-top:66px}
 }
 
-.primary:hover,.navcta:hover{
-  background:var(--brand2);
-  border-color:var(--brand2);
-}
+.primary:hover{background:var(--brand2);border-color:var(--brand2)}
+.navcta:hover{background:#EAF0FF;color:#0032BE;border-color:#EAF0FF}
 .ghost:hover{
   border-color:var(--brand2);
   color:#fff;
@@ -365,4 +366,15 @@ footer{padding:34px 0 44px;color:#8EA0C7;font-size:13px}
   margin-top:24px;
   border-radius:999px;
   background:linear-gradient(90deg,var(--brand),var(--cyan));
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:1px;
+  background:rgba(255,255,255,.16);
+}
+.topbar .brand-logo{
+  filter:none;
 }
