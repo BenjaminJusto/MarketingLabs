@@ -30,7 +30,7 @@
     </a>
 
     <nav class="menu" aria-label="Navegación principal">
-      <a href="#publicos">Públicos</a>
+      <a href="#publicos">Perfiles</a>
       <a href="#metodologia">Método EBC</a>
       <a href="#rutas">Rutas</a>
       <a href="#cursos">Cursos</a>
@@ -54,19 +54,8 @@
           Educación aplicada para profesionales de marketing y líderes de negocio.
           Cada curso combina casos empresariales, datasets, análisis y decisiones con impacto real en el negocio.
         </p>
-
-        <div class="hero-profile-selector" aria-label="Selecciona tu perfil">
-          <span class="profile-prompt">¿Cuál es tu perfil?</span>
-          <div class="profile-options">
-            <button class="profile-option active" type="button" data-hero-profile="early">Early Marketers</button>
-            <button class="profile-option" type="button" data-hero-profile="leaders">Business Leaders</button>
-            <button class="profile-option" type="button" data-hero-profile="strategic">Strategic Marketers</button>
-          </div>
-          <p class="profile-context" id="heroProfileContext">Construye criterio estratégico y una base sólida para tomar mejores decisiones de marketing.</p>
-        </div>
-
         <div class="actions">
-          <a class="btn primary" id="heroCourseCta" href="#cursos">Ver cursos para Early Marketers</a>
+          <a class="btn primary" href="#cursos">Explorar cursos</a>
           <a class="btn ghost" href="#metodologia">Conocer el método EBC</a>
         </div>
       </div>
@@ -77,6 +66,12 @@
             <span class="live-dot"></span>
             <span>Caso en análisis</span>
             <small id="heroCaseArea">ESTRATEGIA DE MARKETING</small>
+          </div>
+
+          <div class="dashboard-switcher" aria-label="Cambiar caso del dashboard">
+            <button class="dashboard-tab active" type="button" data-case="strategy">Estrategia</button>
+            <button class="dashboard-tab" type="button" data-case="performance">Performance</button>
+            <button class="dashboard-tab" type="button" data-case="customer">Cliente</button>
           </div>
 
           <div class="case-question" id="heroCaseQuestion">¿Qué segmento debería priorizar la marca?</div>
