@@ -17,33 +17,163 @@ const courses=[
 {title:"Data-Driven Marketing Advanced",aud:["strategic"],who:"Strategic Marketers",desc:"Pasa de describir resultados a diagnosticar, anticipar escenarios y optimizar decisiones.",tags:["Advanced Analytics","Forecast","Atribución"],content:"Cohortes · Atribución · Incrementalidad · Forecast · Escenarios · Experimentación · Optimización",case:"Múltiples canales muestran resultados positivos, pero no está claro cuál genera crecimiento incremental.",outcome:"Tomar decisiones avanzadas con escenarios, experimentación y análisis de incrementalidad."}
 ];
 
+
+const areaByTitle={
+  "Fundamentos de Marketing Estratégico":["strategy","Estrategia & Growth"],
+  "Plan de Marketing Aplicado":["strategy","Estrategia & Growth"],
+  "Estrategia de Marketing Integrada":["strategy","Estrategia & Growth"],
+  "Data-Driven Marketing Fundamentals":["data","Data & Analytics"],
+  "KPIs y Métricas Fundamentales":["performance","Performance & Finanzas"],
+  "Marketing Fundamentals for Business":["strategy","Estrategia & Growth"],
+  "Marketing, Ventas y Finanzas":["performance","Performance & Finanzas"],
+  "Arquitectura de Valor":["value","Marca, Producto & Pricing"],
+  "Marca que Crea Valor":["value","Marca, Producto & Pricing"],
+  "Estrategia para el Crecimiento Rentable":["strategy","Estrategia & Growth"],
+  "Marketing Intelligence, Analytics & ROI":["data","Data & Analytics"],
+  "Marketing Performance":["performance","Performance & Finanzas"],
+  "Customer Intelligence para el Crecimiento":["customer","Cliente & CRM"],
+  "CRM Estratégico":["customer","Cliente & CRM"],
+  "Customer Retention & Growth":["customer","Cliente & CRM"],
+  "Data-Driven Marketing Advanced":["data","Data & Analytics"]
+};
+
+const featuredTitles=new Set([
+  "Fundamentos de Marketing Estratégico",
+  "Data-Driven Marketing Fundamentals",
+  "Marketing Fundamentals for Business",
+  "Arquitectura de Valor",
+  "Marketing Performance",
+  "Customer Intelligence para el Crecimiento"
+]);
+
+courses.forEach(function(c){
+  const meta=areaByTitle[c.title]||["strategy","Estrategia & Growth"];
+  c.area=meta[0];
+  c.areaLabel=meta[1];
+  c.featured=featuredTitles.has(c.title);
+});
+
 const grid=document.getElementById("courseGrid");
 const count=document.getElementById("courseCount");
-let active="all";
+const profileFilter=document.getElementById("profileFilter");
+const areaFilter=document.getElementById("areaFilter");
+const clearFilters=document.getElementById("clearFilters");
+const showAllCourses=document.getElementById("showAllCourses");
 
-function render(){
-  const visible=courses.map((c,i)=>({...c,index:i})).filter(c=>active==="all"||c.aud.includes(active));
-  count.textContent=visible.length+" cursos";
-  grid.innerHTML=visible.map(c=>`
-    <article class="course">
-      <div class="course-top"><span class="who">${c.who}</span><span class="case-badge">CASE + DATA</span></div>
-      <h3>${c.title}</h3>
-      <p>${c.desc}</p>
-      <div class="tags">${c.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
-      <button class="details" data-i="${c.index}">Ver programa →</button>
-    </article>`).join("");
-  document.querySelectorAll(".details").forEach(b=>b.addEventListener("click",()=>openCourse(+b.dataset.i)));
+let profile="all";
+let area="all";
+let showAll=false;
+
+const revealObserver=new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      entry.target.classList.add("is-visible");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:.12,rootMargin:"0px 0px -35px 0px"});
+
+function observeReveals(root){
+  root=(root||document);
+  root.querySelectorAll(".principle,.aud-card,.method-step,.path,.course,.case,.faculty-copy,.faculty-model,.division").forEach(function(el,i){
+    if(el.dataset.revealReady) return;
+    el.dataset.revealReady="1";
+    el.classList.add("reveal");
+    el.style.transitionDelay=Math.min((i%4)*70,210)+"ms";
+    revealObserver.observe(el);
+  });
 }
 
-document.querySelectorAll(".filter").forEach(btn=>btn.addEventListener("click",()=>{
-  document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
-  btn.classList.add("active"); active=btn.dataset.f; render();
-}));
+function getVisibleCourses(){
+  let visible=courses.map(function(c,i){
+    return Object.assign({},c,{index:i});
+  }).filter(function(c){
+    return profile==="all"||c.aud.includes(profile);
+  }).filter(function(c){
+    return area==="all"||c.area===area;
+  });
+
+  const hasFilters=profile!=="all"||area!=="all";
+  if(!hasFilters&&!showAll){
+    visible=visible.filter(function(c){return c.featured;});
+  }
+  return {visible:visible,hasFilters:hasFilters};
+}
+
+function render(){
+  const result=getVisibleCourses();
+  const visible=result.visible;
+  const hasFilters=result.hasFilters;
+
+  if(!hasFilters&&!showAll){
+    count.textContent=visible.length+" destacados de "+courses.length+" cursos";
+    showAllCourses.textContent="Ver todos los cursos";
+  }else if(!hasFilters&&showAll){
+    count.textContent=courses.length+" cursos";
+    showAllCourses.textContent="Ver destacados";
+  }else{
+    count.textContent=visible.length+(visible.length===1?" curso":" cursos");
+    showAllCourses.textContent="Ver todos los cursos";
+  }
+
+  if(!visible.length){
+    grid.innerHTML='<div class="no-courses"><strong>No encontramos cursos con esa combinación.</strong><span>Prueba otro perfil o área académica.</span></div>';
+  }else{
+    grid.innerHTML=visible.map(function(c){
+      return '<article class="course">'+
+        '<div class="course-top"><span class="who">'+c.who+'</span><span class="case-badge">'+c.areaLabel+'</span></div>'+
+        '<h3>'+c.title+'</h3>'+
+        '<p>'+c.desc+'</p>'+
+        '<div class="tags">'+c.tags.map(function(t){return '<span class="tag">'+t+'</span>';}).join("")+'</div>'+
+        '<button class="details" data-i="'+c.index+'">Ver programa →</button>'+
+      '</article>';
+    }).join("");
+  }
+
+  document.querySelectorAll(".details").forEach(function(b){
+    b.addEventListener("click",function(){openCourse(+b.dataset.i);});
+  });
+  observeReveals(grid);
+}
+
+profileFilter.addEventListener("change",function(){
+  profile=profileFilter.value;
+  showAll=false;
+  render();
+});
+
+areaFilter.addEventListener("change",function(){
+  area=areaFilter.value;
+  showAll=false;
+  render();
+});
+
+clearFilters.addEventListener("click",function(){
+  profile="all";
+  area="all";
+  showAll=false;
+  profileFilter.value="all";
+  areaFilter.value="all";
+  render();
+});
+
+showAllCourses.addEventListener("click",function(){
+  if(profile!=="all"||area!=="all"){
+    profile="all";
+    area="all";
+    profileFilter.value="all";
+    areaFilter.value="all";
+    showAll=true;
+  }else{
+    showAll=!showAll;
+  }
+  render();
+});
 
 const modal=document.getElementById("modal");
 function openCourse(i){
   const c=courses[i];
-  document.getElementById("mwho").textContent=c.who;
+  document.getElementById("mwho").textContent=c.who+" · "+c.areaLabel;
   document.getElementById("mtitle").textContent=c.title;
   document.getElementById("mdesc").textContent=c.desc;
   document.getElementById("mcontent").textContent=c.content;
@@ -52,33 +182,15 @@ function openCourse(i){
   modal.classList.add("show");
   document.body.style.overflow="hidden";
 }
-function closeModal(){modal.classList.remove("show");document.body.style.overflow=""}
-document.getElementById("closeModal").addEventListener("click",closeModal);
-modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
-render();
 
-
-/* V4 — subtle reveal animations */
-const revealObserver = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("is-visible");
-      revealObserver.unobserve(entry.target);
-    }
-  });
-},{threshold:.12,rootMargin:"0px 0px -35px 0px"});
-
-function observeReveals(root=document){
-  root.querySelectorAll(".principle,.aud-card,.method-step,.path,.course,.case,.faculty-copy,.faculty-model,.division").forEach((el,i)=>{
-    if(el.dataset.revealReady) return;
-    el.dataset.revealReady="1";
-    el.classList.add("reveal");
-    el.style.transitionDelay=Math.min((i%4)*70,210)+"ms";
-    revealObserver.observe(el);
-  });
+function closeModal(){
+  modal.classList.remove("show");
+  document.body.style.overflow="";
 }
-observeReveals();
 
-const courseMutationObserver=new MutationObserver(()=>observeReveals(grid));
-courseMutationObserver.observe(grid,{childList:true});
+document.getElementById("closeModal").addEventListener("click",closeModal);
+modal.addEventListener("click",function(e){if(e.target===modal) closeModal();});
+document.addEventListener("keydown",function(e){if(e.key==="Escape") closeModal();});
+
+observeReveals();
+render();
