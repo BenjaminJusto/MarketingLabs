@@ -194,3 +194,129 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape") closeModal(
 
 observeReveals();
 render();
+
+
+/* v3.6.0 — hero profile personalization */
+const heroProfiles={
+  early:{
+    context:"Construye criterio estratégico y una base sólida para tomar mejores decisiones de marketing.",
+    cta:"Ver cursos para Early Marketers",
+    area:"ESTRATEGIA DE MARKETING",
+    question:"¿Qué segmento debería priorizar la marca?",
+    data:[
+      ["Segmento A","42%"],
+      ["Crecimiento","+18%"],
+      ["Margen","24%"],
+      ["Competidores","7"]
+    ],
+    chart:[
+      ["Atractivo","82%","82"],
+      ["Fit","67%","67"],
+      ["Margen","58%","58"]
+    ],
+    decisionTitle:"Priorizar el segmento con mejor equilibrio.",
+    decisionText:"El mayor mercado no siempre es el segmento más atractivo para competir."
+  },
+  leaders:{
+    context:"Entiende marketing como una función de negocio para dirigir mejor inversión, crecimiento y rentabilidad.",
+    cta:"Ver cursos para Business Leaders",
+    area:"MARKETING PERFORMANCE",
+    question:"¿Aumentarías el presupuesto de marketing 25%?",
+    data:[
+      ["Ventas","-10%"],
+      ["Conversión","8%"],
+      ["CAC","$100"],
+      ["Meta","+25%"]
+    ],
+    chart:[
+      ["Leads","82%","5,750"],
+      ["Conversión","48%","8%"],
+      ["Margen","64%","10%"]
+    ],
+    decisionTitle:"Primero recuperar conversión.",
+    decisionText:"Más presupuesto no corrige un funnel que ya perdió eficiencia."
+  },
+  strategic:{
+    context:"Profundiza en estrategia, customer intelligence, analytics y rentabilidad para liderar decisiones de mayor complejidad.",
+    cta:"Ver cursos para Strategic Marketers",
+    area:"CUSTOMER INTELLIGENCE",
+    question:"¿Captar más clientes o crecer con los actuales?",
+    data:[
+      ["CLV","S/ 820"],
+      ["CAC","S/ 190"],
+      ["Churn","14%"],
+      ["Recompra","31%"]
+    ],
+    chart:[
+      ["Retención","76%","76"],
+      ["CLV","88%","88"],
+      ["Potencial","69%","69"]
+    ],
+    decisionTitle:"Priorizar retención en clientes de mayor valor.",
+    decisionText:"El crecimiento rentable puede venir de desarrollar mejor la cartera actual antes de acelerar captación."
+  }
+};
+
+const heroProfileButtons=document.querySelectorAll("[data-hero-profile]");
+const heroProfileContext=document.getElementById("heroProfileContext");
+const heroCourseCta=document.getElementById("heroCourseCta");
+const heroCaseArea=document.getElementById("heroCaseArea");
+const heroCaseQuestion=document.getElementById("heroCaseQuestion");
+const heroDataGrid=document.getElementById("heroDataGrid");
+const heroMiniChart=document.getElementById("heroMiniChart");
+const heroDecisionTitle=document.getElementById("heroDecisionTitle");
+const heroDecisionText=document.getElementById("heroDecisionText");
+const heroVisual=document.querySelector(".hero-visual");
+
+let heroProfile="early";
+
+function setHeroProfile(key){
+  const p=heroProfiles[key];
+  if(!p) return;
+  heroProfile=key;
+
+  heroProfileButtons.forEach(function(btn){
+    btn.classList.toggle("active",btn.dataset.heroProfile===key);
+  });
+
+  if(heroVisual) heroVisual.classList.add("is-switching");
+
+  window.setTimeout(function(){
+    heroProfileContext.textContent=p.context;
+    heroCourseCta.textContent=p.cta;
+    heroCaseArea.textContent=p.area;
+    heroCaseQuestion.textContent=p.question;
+
+    heroDataGrid.innerHTML=p.data.map(function(item){
+      return '<div class="data-cell"><span>'+item[0]+'</span><strong>'+item[1]+'</strong></div>';
+    }).join("");
+
+    heroMiniChart.innerHTML=p.chart.map(function(item){
+      return '<div class="chart-row"><span>'+item[0]+'</span><i style="--bar:'+item[1]+'"></i><b>'+item[2]+'</b></div>';
+    }).join("");
+
+    heroDecisionTitle.textContent=p.decisionTitle;
+    heroDecisionText.textContent=p.decisionText;
+
+    if(heroVisual) heroVisual.classList.remove("is-switching");
+  },120);
+}
+
+heroProfileButtons.forEach(function(btn){
+  btn.addEventListener("click",function(){
+    setHeroProfile(btn.dataset.heroProfile);
+  });
+});
+
+heroCourseCta.addEventListener("click",function(e){
+  e.preventDefault();
+  profile=heroProfile;
+  area="all";
+  showAll=false;
+  profileFilter.value=heroProfile;
+  areaFilter.value="all";
+  render();
+  document.getElementById("cursos").scrollIntoView({behavior:"smooth"});
+});
+
+setHeroProfile("early");
