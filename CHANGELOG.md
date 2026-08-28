@@ -8,6 +8,17 @@ La nomenclatura sigue el formato `vMAJOR.MINOR.PATCH`:
 - **MINOR**: nueva funcionalidad, sección o evolución relevante.
 - **PATCH**: corrección o ajuste menor sin cambiar la arquitectura.
 
+## v3.6.1 — Dashboard interactivo por caso
+**28 de agosto de 2026**
+
+- Se eliminó la selección de perfiles del hero.
+- El hero vuelve a presentar la propuesta de valor sin exigir que el usuario conozca los perfiles.
+- El dashboard ahora es interactivo por tipo de caso: **Estrategia**, **Performance** y **Cliente**.
+- Cada caso modifica pregunta, métricas, análisis y decisión.
+- Se mantiene la franja de áreas académicas debajo del hero.
+- Se mantiene el bloque **Cursos especializados en 3 perfiles** como siguiente nivel de descubrimiento.
+- El menú cambia de **Públicos** a **Perfiles**.
+
 ## v3.6.0 — Hero interactivo por perfil
 **28 de agosto de 2026**
 
