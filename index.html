@@ -1,110 +1,340 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Marketing Labs — Business School</title>
-<meta name="description" content="Educación aplicada en marketing, estrategia, analytics y business performance basada en casos, datasets y decisiones reales.">
-<style>
-:root{--bg:#07111f;--panel:#0e1d30;--panel2:#13243a;--text:#f5f7fb;--muted:#9fb0c4;--line:rgba(255,255,255,.1);--cyan:#79d8e6;--green:#7dd7ad;--orange:#f0b56f;--blue:#7fa8ff;--white:#fff;--max:1180px;--r:22px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 85% 8%,rgba(127,168,255,.12),transparent 25%),linear-gradient(180deg,#07111f,#081322);color:var(--text);line-height:1.55}a{color:inherit;text-decoration:none}button{font:inherit}.container{width:min(var(--max),calc(100% - 40px));margin:auto}
-.topbar{position:sticky;top:0;z-index:50;background:rgba(7,17,31,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:12px}.mark{width:34px;height:34px;border:1px solid rgba(121,216,230,.3);border-radius:10px;display:grid;place-items:center;color:var(--cyan);font-weight:900;background:rgba(121,216,230,.06)}.brand b{display:block}.brand small{display:block;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-size:10px}.menu{display:flex;gap:20px;color:var(--muted);font-size:14px}.menu a:hover{color:#fff}.navcta{padding:10px 14px;border:1px solid var(--line);border-radius:999px}
-.hero{padding:92px 0 64px}.eyebrow{display:inline-flex;padding:8px 12px;border:1px solid rgba(121,216,230,.28);border-radius:999px;color:var(--cyan);font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;background:rgba(121,216,230,.05)}h1{font-size:clamp(48px,7vw,86px);line-height:.96;letter-spacing:-.045em;max-width:1000px;margin:24px 0}.hero>div>p{font-size:clamp(18px,2vw,23px);color:var(--muted);max-width:850px;margin:0 0 32px}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;padding:14px 20px;border-radius:14px;border:1px solid var(--line);font-weight:850}.primary{background:#fff;color:#07111f}.secondary{background:rgba(255,255,255,.04)}.strip{margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.strip div{padding:20px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025)}.strip b{display:block;font-size:18px}.strip span{color:var(--muted);font-size:13px}
-section{padding:78px 0}.head{display:flex;justify-content:space-between;align-items:end;gap:26px;margin-bottom:32px}.head h2{font-size:clamp(34px,4vw,54px);line-height:1.03;letter-spacing:-.035em;margin:0}.head p{max-width:620px;color:var(--muted);margin:0}
-.auds{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.aud{padding:28px;border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));min-height:300px}.aud .lab{font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.aud h3{font-size:29px;margin:12px 0 8px}.aud p{color:var(--muted)}.aud ul{padding-left:18px}.early .lab{color:var(--green)}.leaders .lab{color:var(--orange)}.strategic .lab{color:var(--blue)}
-.method{padding:34px;border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(135deg,rgba(121,216,230,.08),rgba(127,168,255,.05))}.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:24px}.step{padding:20px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(7,17,31,.55)}.step small{color:var(--muted);font-weight:900}.step b{display:block;margin:7px 0}.step span{color:var(--muted);font-size:13px}
-.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}.filter{cursor:pointer;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--muted);font-weight:800}.filter.active,.filter:hover{background:#fff;color:#07111f}.courses{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.course{padding:24px;border:1px solid var(--line);border-radius:20px;background:var(--panel);min-height:280px;display:flex;flex-direction:column}.course:hover{background:var(--panel2)}.course .who{font-size:11px;color:var(--cyan);font-weight:900;letter-spacing:.1em;text-transform:uppercase}.course h3{font-size:22px;line-height:1.15;margin:10px 0}.course p{color:var(--muted);margin:0 0 18px}.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto}.tag{font-size:11px;padding:6px 8px;border:1px solid var(--line);border-radius:999px;color:#c9d5e5}.details{margin-top:18px;border:0;background:transparent;color:#fff;text-align:left;padding:0;font-weight:850;cursor:pointer}.details:hover{color:var(--cyan)}
-.cases{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.case{padding:28px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.025)}.case small{color:var(--cyan);font-weight:900;text-transform:uppercase;letter-spacing:.08em}.case h3{font-size:26px;line-height:1.16;margin:10px 0}.case p{color:var(--muted)}.decision{border-top:1px solid var(--line);padding-top:15px;margin-top:18px;font-weight:800}
-.formats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.format{padding:26px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.025)}.format h3{font-size:23px;margin:0 0 8px}.format p{color:var(--muted);margin:0}
-.eco{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;padding:34px;border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(135deg,rgba(184,156,255,.07),rgba(121,216,230,.05))}.eco h2{font-size:42px;line-height:1.05;margin:0 0 12px}.eco p{color:var(--muted)}.divs{display:grid;gap:12px}.division{padding:18px;border:1px solid var(--line);border-radius:16px;background:rgba(7,17,31,.48)}.division b{display:block}.division span{font-size:13px;color:var(--muted)}
-.contact{display:flex;justify-content:space-between;align-items:center;gap:28px;padding:34px;border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(135deg,rgba(121,216,230,.11),rgba(240,181,111,.07))}.contact h2{font-size:38px;margin:0 0 8px}.contact p{margin:0;color:var(--muted)}footer{padding:34px 0 44px;color:var(--muted);font-size:13px}.footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px}
-.modalbg{position:fixed;inset:0;background:rgba(0,0,0,.68);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}.modalbg.show{display:flex}.modal{width:min(720px,100%);max-height:86vh;overflow:auto;background:#0c1a2c;border:1px solid var(--line);border-radius:22px;padding:28px}.mtop{display:flex;justify-content:space-between;gap:20px}.mtop h3{font-size:30px;margin:8px 0 12px}.close{width:38px;height:38px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:#fff;cursor:pointer}.mwho{font-size:11px;color:var(--cyan);font-weight:900;letter-spacing:.1em;text-transform:uppercase}.modal p{color:var(--muted)}.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}.mbox{padding:18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.025)}.mbox b{display:block;margin-bottom:6px}.mbox span{color:var(--muted);font-size:14px}
-@media(max-width:900px){.menu{display:none}.strip,.auds,.flow,.courses,.formats{grid-template-columns:1fr 1fr}.cases,.eco{grid-template-columns:1fr}}@media(max-width:620px){.container{width:min(var(--max),calc(100% - 24px))}.strip,.auds,.flow,.courses,.formats,.mgrid{grid-template-columns:1fr}.head{display:block}.head p{margin-top:12px}.contact{display:block}.contact .btn{margin-top:18px}.brand small{display:none}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Marketing Labs — Business School</title>
+  <meta name="description" content="Cursos aplicados de marketing estratégico, customer intelligence, data-driven marketing y business performance basados en casos, datasets y decisiones reales de negocio.">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="topbar"><div class="container nav">
-<a class="brand" href="#inicio"><span class="mark">ML</span><span><b>Marketing Labs</b><small>Business School</small></span></a>
-<nav class="menu"><a href="#publicos">Públicos</a><a href="#metodologia">Metodología</a><a href="#cursos">Cursos</a><a href="#casos">Casos</a><a href="#formatos">Formatos</a><a href="#ecosistema">Marketing Labs</a></nav>
-<a class="navcta" href="#contacto">Contacto</a>
-</div></header>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="#inicio" aria-label="Marketing Labs Business School">
+      <span class="cube-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+      <span class="brand-word">
+        <span class="marketing">Marketing</span>
+        <span class="labs">Labs</span>
+        <small>Business School</small>
+      </span>
+    </a>
+
+    <nav class="menu" aria-label="Navegación principal">
+      <a href="#publicos">Públicos</a>
+      <a href="#metodologia">Metodología</a>
+      <a href="#rutas">Rutas</a>
+      <a href="#cursos">Cursos</a>
+      <a href="#casos">Casos</a>
+      <a href="#ecosistema">Marketing Labs</a>
+    </nav>
+
+    <a class="navcta" href="#contacto">Programas</a>
+  </div>
+</header>
 
 <main>
-<section id="inicio" class="hero"><div class="container">
-<span class="eyebrow">Marketing Labs — Business School</span>
-<h1>Marketing para pensar,<br>decidir y crecer.</h1>
-<p>Educación aplicada para profesionales de marketing, empresarios y líderes de negocio. Cursos construidos alrededor de casos, datasets, análisis y decisiones empresariales.</p>
-<div class="actions"><a class="btn primary" href="#cursos">Explorar cursos</a><a class="btn secondary" href="#metodologia">Conocer metodología</a></div>
-<div class="strip"><div><b>Case-Based</b><span>Problemas empresariales como punto de partida.</span></div><div><b>Data-Driven</b><span>Datasets para analizar antes de decidir.</span></div><div><b>Business-First</b><span>Marketing conectado con ventas y rentabilidad.</span></div><div><b>Practical Learning</b><span>Aplicación antes que teoría aislada.</span></div></div>
-</div></section>
+<section id="inicio" class="hero">
+  <div class="container">
+    <span class="kicker">Marketing Labs — Business School</span>
+    <h1>Aprender marketing<br>para decidir mejor.</h1>
+    <p class="hero-copy">
+      Educación aplicada para profesionales de marketing y líderes de negocio.
+      Cada curso combina casos empresariales, datasets, análisis y decisiones con impacto real en el negocio.
+    </p>
+    <div class="actions">
+      <a class="btn primary" href="#cursos">Explorar cursos</a>
+      <a class="btn ghost" href="#metodologia">Cómo aprendemos</a>
+    </div>
 
-<section id="publicos"><div class="container">
-<div class="head"><h2>Tres públicos.<br>Tres niveles de decisión.</h2><p>El enfoque cambia según el rol: aprender marketing, dirigirlo desde el negocio o liderarlo estratégicamente.</p></div>
-<div class="auds">
-<article class="aud early"><div class="lab">Early Marketers</div><h3>Construir criterio</h3><p>Para quienes están consolidando su formación y necesitan comprender cómo funciona el marketing antes de especializarse.</p><ul><li>Fundamentos estratégicos</li><li>Plan de marketing aplicado</li><li>KPIs esenciales</li><li>Data-Driven Fundamentals</li></ul></article>
-<article class="aud leaders"><div class="lab">Business Leaders</div><h3>Dirigir mejor</h3><p>Para gerentes, empresarios y emprendedores que deben tomar decisiones de marketing sin ser especialistas operativos.</p><ul><li>Marketing Fundamentals for Business</li><li>Marketing + Ventas + Finanzas</li><li>KPIs para líderes</li><li>Crecimiento rentable</li></ul></article>
-<article class="aud strategic"><div class="lab">Strategic Marketers</div><h3>Liderar crecimiento</h3><p>Para perfiles con experiencia que buscan elevar su capacidad de análisis, estrategia, cliente y rentabilidad.</p><ul><li>Marketing Intelligence</li><li>Customer Intelligence</li><li>Marketing Performance</li><li>Data-Driven Advanced</li></ul></article>
-</div></div></section>
+    <div class="principles">
+      <div class="principle"><b>Case-Based</b><span>El problema aparece antes que la teoría.</span></div>
+      <div class="principle"><b>Data-Driven</b><span>Los argumentos se sustentan con datos.</span></div>
+      <div class="principle"><b>Business-First</b><span>Marketing conectado con ventas y rentabilidad.</span></div>
+      <div class="principle"><b>Decision-Oriented</b><span>El objetivo no es calcular: es decidir.</span></div>
+    </div>
+  </div>
+</section>
 
-<section id="metodologia"><div class="container"><div class="method">
-<div class="head"><h2>Menos teoría aislada.<br>Más problemas, datos y decisiones.</h2><p>Cada curso parte de situaciones empresariales reales o inspiradas en casos reales. El participante analiza información, sustenta decisiones y evalúa impacto.</p></div>
-<div class="flow"><div class="step"><small>01</small><b>CASE</b><span>Problema empresarial.</span></div><div class="step"><small>02</small><b>DATA</b><span>Ventas, clientes, mercado, precios o margen.</span></div><div class="step"><small>03</small><b>ANALYSIS</b><span>Frameworks, métricas y diagnóstico.</span></div><div class="step"><small>04</small><b>DECISION</b><span>Elegir, priorizar y sustentar.</span></div><div class="step"><small>05</small><b>BUSINESS IMPACT</b><span>Efecto comercial y financiero.</span></div></div>
-</div></div></section>
+<section id="publicos">
+  <div class="container">
+    <div class="head">
+      <h2>Tres públicos.<br>Tres niveles de decisión.</h2>
+      <p>
+        El contenido cambia según el momento profesional: construir criterio, dirigir marketing desde el negocio
+        o liderar decisiones estratégicas de mayor complejidad.
+      </p>
+    </div>
 
-<section id="cursos"><div class="container">
-<div class="head"><h2>Catálogo de cursos</h2><p>Una arquitectura flexible para cursos abiertos, educación ejecutiva y programas in-company.</p></div>
-<div class="filters"><button class="filter active" data-f="all">Todos</button><button class="filter" data-f="early">Early Marketers</button><button class="filter" data-f="leaders">Business Leaders</button><button class="filter" data-f="strategic">Strategic Marketers</button></div>
-<div class="courses" id="courseGrid"></div>
-</div></section>
+    <div class="audiences">
+      <article class="aud-card early">
+        <div class="label">Early Marketers</div>
+        <h3>Construir criterio</h3>
+        <p>Para profesionales junior y perfiles en desarrollo que necesitan una base estratégica antes de especializarse.</p>
+        <div class="route-mini">
+          <span>Fundamentos de Marketing Estratégico</span>
+          <span>Plan de Marketing Aplicado</span>
+          <span>KPIs y Métricas Fundamentales</span>
+          <span>Data-Driven Marketing Fundamentals</span>
+        </div>
+      </article>
 
-<section id="casos"><div class="container">
-<div class="head"><h2>Real Business Cases</h2><p>Preguntas que podrían aparecer mañana en una reunión de marketing, ventas o gerencia.</p></div>
-<div class="cases">
-<article class="case"><small>Pricing · Marca · ROI</small><h3>¿Un rebranding puede justificar un precio mayor?</h3><p>Un producto pasa de S/12 a S/18, exige inversión inicial y una campaña adicional.</p><div class="decision">Decisión: ¿lanzar, ajustar o descartar?</div></article>
-<article class="case"><small>CAC · Conversión · Presupuesto</small><h3>Marketing pide 25% más presupuesto. ¿Lo aprobarías?</h3><p>Las ventas cayeron y el área propone invertir más para recuperar crecimiento.</p><div class="decision">Decisión: ¿el problema es adquisición, conversión o rentabilidad?</div></article>
-<article class="case"><small>Cliente · CLV · Retención</small><h3>¿Adquirir más clientes o crecer con los actuales?</h3><p>Dos segmentos muestran comportamientos distintos en ticket, frecuencia y churn.</p><div class="decision">Decisión: ¿dónde asignar el próximo sol de inversión?</div></article>
-<article class="case"><small>Producto · Precio · Competencia</small><h3>¿Bajar precio o construir más valor?</h3><p>Un competidor inicia una guerra de precios y el margen comienza a deteriorarse.</p><div class="decision">Decisión: competir, diferenciar o redefinir la oferta.</div></article>
-</div></div></section>
+      <article class="aud-card leaders">
+        <div class="label">Business Leaders</div>
+        <h3>Dirigir mejor</h3>
+        <p>Para gerentes, empresarios y emprendedores que deben entender marketing para tomar mejores decisiones de negocio.</p>
+        <div class="route-mini">
+          <span>Marketing Fundamentals for Business</span>
+          <span>Marketing, Ventas y Finanzas</span>
+          <span>Arquitectura de Valor</span>
+          <span>KPIs para líderes de negocio</span>
+        </div>
+      </article>
 
-<section id="formatos"><div class="container">
-<div class="head"><h2>Formatos de aprendizaje</h2><p>La metodología se adapta a distintos contextos, niveles y necesidades empresariales.</p></div>
-<div class="formats"><article class="format"><h3>Open Courses</h3><p>Cursos abiertos para profesionales que buscan desarrollar capacidades específicas.</p></article><article class="format"><h3>Executive Education</h3><p>Programas para líderes y equipos de gestión con enfoque estratégico y de negocio.</p></article><article class="format"><h3>In-Company</h3><p>Casos y datasets adaptados al reto específico de una organización.</p></article></div>
-</div></section>
+      <article class="aud-card strategic">
+        <div class="label">Strategic Marketers</div>
+        <h3>Liderar crecimiento</h3>
+        <p>Para perfiles con experiencia que buscan elevar estrategia, customer intelligence, analytics y rentabilidad.</p>
+        <div class="route-mini">
+          <span>Estrategia para el Crecimiento Rentable</span>
+          <span>Marketing Intelligence, Analytics & ROI</span>
+          <span>Customer Intelligence</span>
+          <span>Data-Driven Marketing Advanced</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
-<section id="ecosistema"><div class="container"><div class="eco">
-<div><span class="eyebrow">Marketing Labs</span><h2>Un ecosistema para entender, decidir y crecer.</h2><p>Business School forma parte de una plataforma que conecta aprendizaje, investigación aplicada y consultoría.</p></div>
-<div class="divs"><div class="division"><b>Marketing Labs — Business School</b><span>Educación aplicada, programas ejecutivos y formación empresarial.</span></div><div class="division"><b>Marketing Labs — Research</b><span>Estudios, análisis de mercado, tendencias y conocimiento.</span></div><div class="division"><b>Marketing Labs — Consulting</b><span>Estrategia, diagnóstico y resolución de problemas de marketing y negocio.</span></div></div>
-</div></div></section>
+<section id="metodologia" class="section-dark">
+  <div class="container">
+    <div class="method-shell">
+      <div class="method-intro">
+        <span class="kicker">Learning Method</span>
+        <h2>Menos teoría aislada.<br>Más criterio aplicado.</h2>
+        <p>
+          Cada experiencia parte de una situación empresarial que obliga a interpretar información,
+          priorizar alternativas y sustentar una decisión.
+        </p>
+      </div>
 
-<section id="contacto"><div class="container"><div class="contact"><div><h2>¿Diseñamos un curso o programa?</h2><p>Educación ejecutiva, cursos abiertos, workshops y programas in-company.</p></div><a class="btn primary" href="mailto:contacto@marketinglabs.pe">Conversemos</a></div></div></section>
+      <div class="method-flow">
+        <div class="method-step"><small>01</small><b>CASE</b><span>Un problema de negocio concreto.</span></div>
+        <div class="method-step"><small>02</small><b>DATA</b><span>Ventas, clientes, mercado, precios o margen.</span></div>
+        <div class="method-step"><small>03</small><b>ANALYSIS</b><span>Frameworks, métricas y diagnóstico.</span></div>
+        <div class="method-step"><small>04</small><b>DECISION</b><span>Elegir, priorizar y sustentar qué hacer.</span></div>
+        <div class="method-step"><small>05</small><b>BUSINESS IMPACT</b><span>Entender cómo la decisión afecta crecimiento, cliente y rentabilidad.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rutas">
+  <div class="container">
+    <div class="head">
+      <h2>Learning Paths</h2>
+      <p>
+        Los cursos pueden tomarse de manera independiente o como rutas progresivas según el perfil y el nivel de responsabilidad.
+      </p>
+    </div>
+
+    <div class="paths">
+      <article class="path">
+        <span class="path-no">PATH 01</span>
+        <h3>Marketing Essentials</h3>
+        <p>De los fundamentos a una primera capacidad de análisis y planificación.</p>
+        <div class="path-steps">
+          <div class="path-step"><i class="dot"></i><span>Fundamentos de Marketing Estratégico</span></div>
+          <div class="path-step"><i class="dot"></i><span>Plan de Marketing Aplicado</span></div>
+          <div class="path-step"><i class="dot"></i><span>Estrategia de Marketing Integrada</span></div>
+          <div class="path-step"><i class="dot"></i><span>KPIs y Métricas Fundamentales</span></div>
+          <div class="path-step"><i class="dot"></i><span>Data-Driven Marketing Fundamentals</span></div>
+        </div>
+      </article>
+
+      <article class="path">
+        <span class="path-no">PATH 02</span>
+        <h3>Marketing for Business Leaders</h3>
+        <p>Marketing entendido desde decisiones de crecimiento, valor y rentabilidad.</p>
+        <div class="path-steps">
+          <div class="path-step"><i class="dot"></i><span>Marketing Fundamentals for Business</span></div>
+          <div class="path-step"><i class="dot"></i><span>Arquitectura de Valor</span></div>
+          <div class="path-step"><i class="dot"></i><span>Marketing, Ventas y Finanzas</span></div>
+          <div class="path-step"><i class="dot"></i><span>KPIs y Métricas Fundamentales</span></div>
+          <div class="path-step"><i class="dot"></i><span>Estrategia para el Crecimiento Rentable</span></div>
+        </div>
+      </article>
+
+      <article class="path">
+        <span class="path-no">PATH 03</span>
+        <h3>Strategic Marketing & Analytics</h3>
+        <p>De gestionar marketing a dirigir decisiones de crecimiento sustentadas en datos.</p>
+        <div class="path-steps">
+          <div class="path-step"><i class="dot"></i><span>Estrategia para el Crecimiento Rentable</span></div>
+          <div class="path-step"><i class="dot"></i><span>Marketing Intelligence, Analytics & ROI</span></div>
+          <div class="path-step"><i class="dot"></i><span>Customer Intelligence para el Crecimiento</span></div>
+          <div class="path-step"><i class="dot"></i><span>Marketing Performance</span></div>
+          <div class="path-step"><i class="dot"></i><span>Data-Driven Marketing Advanced</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="cursos">
+  <div class="container">
+    <div class="head">
+      <h2>Course Portfolio</h2>
+      <p>
+        Cursos diseñados alrededor de problemas de negocio. Todos incorporan casos aplicados y datasets para analizar, discutir y decidir.
+      </p>
+    </div>
+
+    <div class="course-tools">
+      <div class="filters">
+        <button class="filter active" data-f="all">Todos</button>
+        <button class="filter" data-f="early">Early Marketers</button>
+        <button class="filter" data-f="leaders">Business Leaders</button>
+        <button class="filter" data-f="strategic">Strategic Marketers</button>
+      </div>
+      <span id="courseCount" class="count"></span>
+    </div>
+
+    <div class="courses" id="courseGrid"></div>
+  </div>
+</section>
+
+<section id="casos">
+  <div class="container">
+    <div class="head">
+      <h2>Real Business Cases</h2>
+      <p>
+        El alumno no recibe únicamente un concepto. Recibe una situación, información incompleta y una decisión que debe defender.
+      </p>
+    </div>
+
+    <div class="cases">
+      <article class="case featured">
+        <small>Pricing · Marca · ROI</small>
+        <h3>¿Un rebranding puede justificar pasar de S/12 a S/18?</h3>
+        <p>
+          Una empresa relanza un producto, invierte en nueva propuesta de valor y aumenta el presupuesto de comunicación.
+          El reto es determinar cuánto debe crecer el volumen y qué margen necesita para que la estrategia cree valor.
+        </p>
+        <div class="decision">Decisión: lanzar, ajustar la estrategia o descartar la inversión.</div>
+      </article>
+
+      <article class="case">
+        <small>CAC · Conversión</small>
+        <h3>Marketing pide más presupuesto. ¿Lo aprobarías?</h3>
+        <p>Las ventas caen 10% y el equipo propone invertir para recuperar crecimiento.</p>
+        <div class="decision">¿Adquisición, conversión o rentabilidad?</div>
+      </article>
+
+      <article class="case">
+        <small>Cliente · CLV</small>
+        <h3>¿Captar más o crecer con los actuales?</h3>
+        <p>Dos segmentos muestran diferencias fuertes en ticket, frecuencia y churn.</p>
+        <div class="decision">¿Dónde invertir el próximo sol?</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="faculty">
+  <div class="container">
+    <div class="head">
+      <h2>Faculty from Practice</h2>
+      <p>
+        La propuesta académica está pensada para integrar docentes y profesionales con experiencia empresarial,
+        especialistas por disciplina y casos construidos desde problemas reales.
+      </p>
+    </div>
+
+    <div class="faculty">
+      <article class="faculty-copy">
+        <h3>No una sola voz.</h3>
+        <p>
+          Los programas pueden combinar profesores líderes, especialistas invitados y profesionales de industria
+          según la naturaleza del curso y el caso.
+        </p>
+        <p>
+          El objetivo es que el participante reciba distintas perspectivas sin perder una metodología común de análisis y decisión.
+        </p>
+      </article>
+
+      <article class="faculty-model">
+        <h3>Modelo docente</h3>
+        <div class="faculty-points">
+          <div class="fp"><b>Experiencia empresarial</b><span>Problemas, decisiones y restricciones reales.</span></div>
+          <div class="fp"><b>Especialistas por tema</b><span>Profundidad donde el curso lo necesita.</span></div>
+          <div class="fp"><b>Casos compartidos</b><span>Una misma lógica metodológica entre cursos.</span></div>
+          <div class="fp"><b>Aplicación ejecutiva</b><span>Del análisis a una decisión defendible.</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="ecosistema">
+  <div class="container">
+    <div class="ecosystem">
+      <div>
+        <span class="kicker">Marketing Labs</span>
+        <h2>Insights.<br>Estrategia.<br>Impacto.</h2>
+        <p>
+          Business School forma parte de un ecosistema que conecta aprendizaje, investigación aplicada
+          y consultoría para transformar información en mejores decisiones de marketing y negocio.
+        </p>
+      </div>
+
+      <div class="division-list">
+        <div class="division school"><b>Marketing Labs — Business School</b><span>Educación aplicada, programas ejecutivos y formación empresarial.</span></div>
+        <div class="division research"><b>Marketing Labs — Research</b><span>Estudios, análisis de mercado, tendencias e insights.</span></div>
+        <div class="division consulting"><b>Marketing Labs — Consulting</b><span>Estrategia, diagnóstico y resolución de problemas de marketing y negocio.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="container">
+    <div class="contact">
+      <div>
+        <h2>Programas abiertos, ejecutivos e in-company.</h2>
+        <p>La oferta puede adaptarse por audiencia, industria, nivel y problema de negocio.</p>
+        <div class="contact-note">Canal institucional de contacto en configuración.</div>
+      </div>
+      <a class="btn" href="#cursos">Revisar cursos</a>
+    </div>
+  </div>
+</section>
 </main>
 
-<footer><div class="container footer"><span>© 2026 Marketing Labs — Business School</span><span>Business School · Research · Consulting</span></div></footer>
+<footer>
+  <div class="container footer">
+    <span>© 2026 Marketing Labs — Business School</span>
+    <span>Business School · Research · Consulting</span>
+  </div>
+</footer>
 
-<div class="modalbg" id="modal"><div class="modal"><div class="mtop"><div><div class="mwho" id="mwho"></div><h3 id="mtitle"></h3></div><button class="close" id="close">×</button></div><p id="mdesc"></p><div class="mgrid"><div class="mbox"><b>Contenidos principales</b><span id="mcontent"></span></div><div class="mbox"><b>Caso aplicado</b><span id="mcase"></span></div></div></div></div>
+<div class="modalbg" id="modal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-top">
+      <div>
+        <div class="modal-who" id="mwho"></div>
+        <h3 id="mtitle"></h3>
+      </div>
+      <button class="close" id="closeModal" aria-label="Cerrar">×</button>
+    </div>
+    <p id="mdesc"></p>
+    <div class="modal-grid">
+      <div class="modal-box"><b>Contenidos principales</b><span id="mcontent"></span></div>
+      <div class="modal-box"><b>Caso aplicado</b><span id="mcase"></span></div>
+      <div class="modal-box full"><b>Resultado de aprendizaje</b><span id="moutcome"></span></div>
+    </div>
+  </div>
+</div>
 
-<script>
-const courses=[
-["Fundamentos de Marketing Estratégico","early","Early Marketers","Mercado, cliente, competencia, segmentación, propuesta de valor y posicionamiento.","Estrategia, STP, Valor","Mercado · Cliente · Competencia · Segmentación · Propuesta de valor · Posicionamiento","Caso de entrada a mercado con decisiones de segmentación y posicionamiento."],
-["Plan de Marketing Aplicado","early","Early Marketers","Del diagnóstico al presupuesto: estrategia, acciones, KPIs y seguimiento.","Planificación, KPIs, Presupuesto","Diagnóstico · Objetivos · Estrategias · Acciones · Presupuesto · KPIs","Caso empresarial con ventas, mercado, presupuesto y objetivos de crecimiento."],
-["Data-Driven Marketing Fundamentals","early","Early Marketers","De las preguntas de negocio a los datos, indicadores, insights y decisiones.","Datos, Insights, Dashboards","Datos · Fuentes · Métricas · KPIs · Funnel · Dashboards · Insights","Dataset de marketing con ventas, leads y comportamiento para identificar oportunidades."],
-["KPIs y Métricas Fundamentales","early leaders","Early · Business Leaders","Qué medir en mercado, marca, cliente, producto, ventas y marketing.","KPIs, Métricas, Decisión","Mercado · Marca · Cliente · Producto · Ventas · Marketing","Dashboard ejecutivo con indicadores dispersos que deben convertirse en un sistema de control."],
-["Marketing Fundamentals for Business","leaders","Business Leaders","Marketing para quienes deben dirigirlo, evaluarlo y financiarlo.","Dirección, Marketing, Negocio","Mercado · Cliente · Valor · Marca · Precio · Canales · Métricas","Caso gerencial para evaluar una estrategia comercial con prioridades en conflicto."],
-["Marketing, Ventas y Finanzas","leaders strategic","Business Leaders · Strategic Marketers","Demanda, conversión, ticket, margen, presupuesto y rentabilidad en una sola lógica.","Ventas, Finanzas, Rentabilidad","Demanda · Funnel · Ventas · Ticket · Margen · CAC · Forecast · ROI","Caso con caída de ventas y solicitud de mayor presupuesto para recuperar crecimiento."],
-["Arquitectura de Valor","leaders strategic","Business Leaders · Strategic Marketers","Producto, precio y marca como sistema integrado para crear y capturar valor.","Producto, Pricing, Marca","Producto · Pricing · Marca · Diferenciación · Posicionamiento · Willingness to Pay","Caso de relanzamiento de producto con cambio de precio, marca y propuesta de valor."],
-["Marca que Crea Valor","leaders strategic","Business Leaders · Strategic Marketers","Estrategia de marca más allá del diseño: percepción, preferencia y negocio.","Brand Strategy, Valor, Posicionamiento","Propuesta de valor · Posicionamiento · Identidad · Experiencia · Preferencia · Pricing","Caso de rebranding donde debe demostrarse si la marca justifica inversión y mayor precio."],
-["Estrategia para el Crecimiento Rentable","strategic","Strategic Marketers","Cómo identificar oportunidades de crecimiento y validar si realmente crean valor.","Growth, Estrategia, Rentabilidad","Mercado · Crecimiento · Precio · Producto · Clientes · Canales · Rentabilidad","Caso multiescenario para elegir la mejor vía de crecimiento con recursos limitados."],
-["Marketing Intelligence, Analytics & ROI","strategic","Strategic Marketers","Información de mercado, cliente y negocio convertida en decisiones estratégicas.","Intelligence, Analytics, ROI","Intelligence · KPIs · CAC · CLV · ROI · MROI · Dashboards · Escenarios","Caso de asignación presupuestaria con datos de mercado, ventas y marketing."],
-["Marketing Performance","strategic","Strategic Marketers","Métricas, rentabilidad y negocio: CAC, CLV, churn, ROI, MROI e incrementalidad.","CAC, CLV, MROI","CAC · CLV · Churn · ROI · MROI · Incrementalidad · Payback · Presupuesto","Caso de performance para decidir dónde recortar, mantener o incrementar inversión."],
-["Customer Intelligence para el Crecimiento","strategic","Strategic Marketers","Segmentación, comportamiento, journey y valor del cliente aplicados a crecimiento.","Customer, CLV, Segmentación","Segmentación · RFM · Journey · CLV · Comportamiento · Oportunidades","Dataset de clientes para priorizar segmentos y diseñar acciones diferenciadas."],
-["CRM Estratégico","strategic","Strategic Marketers","CRM no es un software: es una estrategia para desarrollar relaciones rentables.","CRM, Retención, Relación","Captación · Identificación · Segmentación · Conversión · Desarrollo · Retención · Win-back","Caso de empresa con base de clientes subutilizada y CRM implementado sin estrategia."],
-["Customer Retention & Growth","strategic","Strategic Marketers","Retención, churn, frecuencia, recompra y desarrollo de valor del cliente.","Retention, Growth, CLV","Retención · Churn · Frecuencia · Recompra · Cross-sell · Upsell · Win-back · CLV","Caso con cohortes y segmentos para decidir entre captación, retención y desarrollo."],
-["Data-Driven Marketing Advanced","strategic","Strategic Marketers","De la medición a la optimización: atribución, incrementalidad, forecasting y escenarios.","Advanced Analytics, Forecast, Atribución","Cohortes · Atribución · Incrementalidad · Forecast · Escenarios · Experimentación","Caso avanzado con múltiples canales, cohortes y restricciones presupuestarias."]
-];
-const grid=document.getElementById("courseGrid");
-function render(f="all"){grid.innerHTML="";courses.filter(c=>f==="all"||c[1].split(" ").includes(f)).forEach((c,i)=>{const a=document.createElement("article");a.className="course";a.innerHTML='<div class="who">'+c[2]+'</div><h3>'+c[0]+'</h3><p>'+c[3]+'</p><div class="tags">'+c[4].split(", ").map(t=>'<span class="tag">'+t+'</span>').join("")+'</div><button class="details" data-i="'+i+'">Ver programa →</button>';grid.appendChild(a)});document.querySelectorAll(".details").forEach(b=>b.onclick=()=>openCourse(+b.dataset.i))}
-document.querySelectorAll(".filter").forEach(b=>b.onclick=()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");render(b.dataset.f)});
-const modal=document.getElementById("modal");function openCourse(i){const c=courses[i];document.getElementById("mwho").textContent=c[2];document.getElementById("mtitle").textContent=c[0];document.getElementById("mdesc").textContent=c[3];document.getElementById("mcontent").textContent=c[5];document.getElementById("mcase").textContent=c[6];modal.classList.add("show")}document.getElementById("close").onclick=()=>modal.classList.remove("show");modal.onclick=e=>{if(e.target===modal)modal.classList.remove("show")};document.onkeydown=e=>{if(e.key==="Escape")modal.classList.remove("show")};render();
-</script>
+<script src="app.js"></script>
 </body>
 </html>
