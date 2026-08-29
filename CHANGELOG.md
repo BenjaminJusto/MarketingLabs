@@ -8,6 +8,24 @@ La nomenclatura sigue el formato `vMAJOR.MINOR.PATCH`:
 - **MINOR**: nueva funcionalidad, sección o evolución relevante.
 - **PATCH**: corrección o ajuste menor sin cambiar la arquitectura.
 
+## v6.1.0-beta — Leads + Performance hero
+**28 de agosto de 2026**
+
+- Prueba visual del hero con un dashboard más editorial y analítico.
+- Caso principal: **Las ventas cayeron 10%. ¿Subir presupuesto lo resolvería?**
+- KPIs visibles: Ventas -10%, Meta +25%, Leads necesarios 5,750 y CAC $100.
+- Lectura de diagnóstico: Leads, Conversión y Margen.
+- Decisión destacada: **Primero hay que recuperar conversión.**
+- Se mantiene animación interna de barras, sin movimiento del contenedor.
+- Esta versión es experimental y puede revertirse íntegramente a v6.0.0.
+
+## v6.0.0 — Base estable antes de experimentos
+**28 de agosto de 2026**
+
+- Snapshot estable de la web antes de probar nuevos formatos del dashboard del hero.
+- Hero con dashboard por casos de Estrategia, Performance y Cliente.
+- Áreas académicas, perfiles, Método EBC, rutas, catálogo filtrable y sistema oficial de marca preservados.
+
 ## v3.6.1 — Dashboard interactivo por caso
 **28 de agosto de 2026**
 
