@@ -60,43 +60,49 @@
         </div>
       </div>
 
-      <div class="hero-visual" aria-label="Ejemplo animado de un caso de negocio">
-        <div class="lab-window">
+      <div class="hero-visual hero-visual-beta" aria-label="Caso de análisis de leads y performance">
+        <div class="lab-window leads-window">
           <div class="lab-window-top">
             <span class="live-dot"></span>
             <span>Caso en análisis</span>
-            <small id="heroCaseArea">ESTRATEGIA DE MARKETING</small>
+            <small>LEADS + PERFORMANCE</small>
           </div>
 
-          <div class="dashboard-switcher" aria-label="Cambiar caso del dashboard">
-            <button class="dashboard-tab active" type="button" data-case="strategy">Estrategia</button>
-            <button class="dashboard-tab" type="button" data-case="performance">Performance</button>
-            <button class="dashboard-tab" type="button" data-case="customer">Cliente</button>
+          <div class="case-question beta-question">Las ventas cayeron 10%.<br>¿Subir presupuesto lo resolvería?</div>
+
+          <div class="beta-kpis">
+            <div class="beta-kpi">
+              <span>Ventas</span>
+              <strong class="negative">-10%</strong>
+            </div>
+            <div class="beta-kpi">
+              <span>Meta</span>
+              <strong class="cyan-value">+25%</strong>
+            </div>
+            <div class="beta-kpi">
+              <span>Leads necesarios</span>
+              <strong class="purple-value">5,750</strong>
+            </div>
+            <div class="beta-kpi">
+              <span>CAC</span>
+              <strong>$100</strong>
+            </div>
           </div>
 
-          <div class="case-question" id="heroCaseQuestion">¿Qué segmento debería priorizar la marca?</div>
-
-          <div class="data-grid" id="heroDataGrid">
-            <div class="data-cell"><span>Segmento A</span><strong>42%</strong></div>
-            <div class="data-cell"><span>Crecimiento</span><strong>+18%</strong></div>
-            <div class="data-cell"><span>Margen</span><strong>24%</strong></div>
-            <div class="data-cell"><span>Competidores</span><strong>7</strong></div>
+          <div class="mini-chart beta-chart" aria-hidden="true">
+            <div class="chart-row"><span>Leads</span><i style="--bar:82%"></i><b>82</b></div>
+            <div class="chart-row"><span>Conversión</span><i style="--bar:48%"></i><b>48</b></div>
+            <div class="chart-row"><span>Margen</span><i style="--bar:64%"></i><b>64</b></div>
           </div>
 
-          <div class="mini-chart" id="heroMiniChart" aria-hidden="true">
-            <div class="chart-row"><span>Atractivo</span><i style="--bar:82%"></i><b>82</b></div>
-            <div class="chart-row"><span>Fit</span><i style="--bar:67%"></i><b>67</b></div>
-            <div class="chart-row"><span>Margen</span><i style="--bar:58%"></i><b>58</b></div>
-          </div>
-
-          <div class="analysis-steps">
+          <div class="analysis-steps beta-steps">
             <span>CASE</span><span>DATA</span><span>ANALYSIS</span><span>DECISION</span>
           </div>
 
-          <div class="decision-card">
+          <div class="decision-card beta-decision">
             <small>DECISIÓN</small>
-            <strong id="heroDecisionTitle">Priorizar el segmento con mejor equilibrio.</strong>
-            <span id="heroDecisionText">El mayor mercado no siempre es el segmento más atractivo para competir.</span>
+            <strong>Primero hay que recuperar conversión.</strong>
+            <span>Más inversión no corrige un funnel que ya perdió eficiencia comercial.</span>
           </div>
         </div>
       </div>
