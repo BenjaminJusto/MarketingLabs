@@ -194,3 +194,194 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape") closeModal(
 
 observeReveals();
 render();
+
+
+/* v6.1.0-beta — rotating interactive cases */
+const interactiveCases=[
+  {
+    area:"BRANDING + PRICING",
+    question:"Si a este pan le agregamos branding,<br>¿cuánto podría subir?",
+    kpis:[
+      ["Precio actual","S/ 9.50","brand"],
+      ["Escenario con marca","S/ 11.50","cyan"],
+      ["Costo extra","S/ 0.20","purple"],
+      ["Incremento estimado","+21%","brand"]
+    ],
+    chart:[
+      ["Percepción","84%","84"],
+      ["Diferenciación","68%","68"],
+      ["Margen","61%","61"]
+    ],
+    scene:0,
+    options:[
+      "Mantener S/ 9.50 para no perder volumen",
+      "Probar S/ 11.50 si mejora la percepción de valor",
+      "Subir directamente a S/ 14.00"
+    ],
+    correct:1,
+    feedback:"El branding puede justificar un mayor precio si realmente mejora diferenciación y valor percibido. El salto debe probarse contra elasticidad, margen y respuesta del consumidor."
+  },
+  {
+    area:"LEADS + PERFORMANCE",
+    question:"Las ventas cayeron 10%.<br>¿Subir presupuesto lo resolvería?",
+    kpis:[
+      ["Ventas","-10%","negative"],
+      ["Meta","+25%","cyan"],
+      ["Leads necesarios","5,750","purple"],
+      ["CAC","$100","brand"]
+    ],
+    chart:[
+      ["Leads","82%","82"],
+      ["Conversión","48%","48"],
+      ["Margen","64%","64"]
+    ],
+    scene:1,
+    options:[
+      "Aumentar presupuesto 25% inmediatamente",
+      "Reducir CAC sin revisar el funnel",
+      "Recuperar conversión antes de escalar inversión"
+    ],
+    correct:2,
+    feedback:"Más inversión no corrige un funnel que ya perdió eficiencia. Antes de comprar más tráfico conviene entender dónde cayó la conversión y recuperar productividad comercial."
+  },
+  {
+    area:"RETENCIÓN + CRECIMIENTO",
+    question:"La retención cayó a 10%.<br>¿Tiene sentido seguir captando?",
+    kpis:[
+      ["Retención","10%","negative"],
+      ["Churn","90%","negative"],
+      ["CAC","S/ 190","brand"],
+      ["Recompra","1.3","purple"]
+    ],
+    chart:[
+      ["Retención","10%","10"],
+      ["CLV","36%","36"],
+      ["Potencial","71%","71"]
+    ],
+    scene:2,
+    options:[
+      "Aumentar captación para compensar la fuga",
+      "Priorizar retención y entender por qué se van",
+      "Bajar precios para todos los clientes"
+    ],
+    correct:1,
+    feedback:"Con 10% de retención, acelerar captación puede amplificar el desperdicio. Primero hay que entender la fuga, corregir experiencia y propuesta de valor, y luego volver a escalar adquisición."
+  }
+];
+
+const caseModule=document.getElementById("interactiveCase");
+const caseArea=document.getElementById("caseArea");
+const caseQuestion=document.getElementById("caseQuestion");
+const caseKpis=document.getElementById("caseKpis");
+const caseChart=document.getElementById("caseChart");
+const decisionOptions=document.getElementById("decisionOptions");
+const decisionFeedback=document.getElementById("decisionFeedback");
+const caseCounter=document.getElementById("caseCounter");
+const caseDots=document.querySelectorAll(".case-dot");
+const scenes=document.querySelectorAll(".visual-scene");
+const prevCase=document.getElementById("prevCase");
+const nextCase=document.getElementById("nextCase");
+
+let activeCase=0;
+let rotationTimer=null;
+let userInteracting=false;
+
+function renderInteractiveCase(index){
+  activeCase=(index+interactiveCases.length)%interactiveCases.length;
+  const c=interactiveCases[activeCase];
+
+  caseModule.classList.add("case-changing");
+
+  window.setTimeout(function(){
+    caseArea.textContent=c.area;
+    caseQuestion.innerHTML=c.question;
+
+    caseKpis.innerHTML=c.kpis.map(function(k){
+      const cls=k[2]==="negative"?"negative":k[2]==="cyan"?"cyan-value":k[2]==="purple"?"purple-value":"";
+      return '<div class="beta-kpi"><div><span>'+k[0]+'</span><strong class="'+cls+'">'+k[1]+'</strong></div></div>';
+    }).join("");
+
+    caseChart.innerHTML=c.chart.map(function(item){
+      return '<div class="chart-row"><span>'+item[0]+'</span><i style="--bar:'+item[1]+'"></i><b>'+item[2]+'</b></div>';
+    }).join("");
+
+    decisionOptions.innerHTML=c.options.map(function(opt,i){
+      return '<button type="button" class="decision-choice" data-choice="'+i+'"><b>'+String.fromCharCode(65+i)+'</b>'+opt+'</button>';
+    }).join("");
+
+    decisionFeedback.className="decision-feedback";
+    decisionFeedback.innerHTML="<span>Elige una opción para ver el análisis.</span>";
+
+    caseDots.forEach(function(dot,i){dot.classList.toggle("active",i===activeCase);});
+    scenes.forEach(function(scene,i){scene.classList.toggle("active-scene",i===c.scene);});
+    caseCounter.textContent="Caso "+(activeCase+1)+" de "+interactiveCases.length;
+
+    document.querySelectorAll(".decision-choice").forEach(function(btn){
+      btn.addEventListener("click",function(){
+        userInteracting=true;
+        pauseRotation();
+        const choice=+btn.dataset.choice;
+        const correct=choice===c.correct;
+
+        document.querySelectorAll(".decision-choice").forEach(function(b){
+          b.classList.remove("selected","correct","wrong");
+        });
+
+        btn.classList.add("selected",correct?"correct":"wrong");
+        const correctButton=document.querySelector('.decision-choice[data-choice="'+c.correct+'"]');
+        if(correctButton) correctButton.classList.add("correct");
+
+        decisionFeedback.className="decision-feedback "+(correct?"good":"bad");
+        decisionFeedback.innerHTML=
+          '<strong>'+(correct?"Buena decisión.":"Revisemos la evidencia.")+'</strong>'+
+          '<span>'+c.feedback+'</span>';
+      });
+    });
+
+    caseModule.classList.remove("case-changing");
+  },140);
+}
+
+function nextInteractiveCase(){
+  userInteracting=false;
+  renderInteractiveCase(activeCase+1);
+}
+function prevInteractiveCase(){
+  userInteracting=false;
+  renderInteractiveCase(activeCase-1);
+}
+function startRotation(){
+  pauseRotation();
+  rotationTimer=window.setInterval(function(){
+    if(!userInteracting) nextInteractiveCase();
+  },8500);
+}
+function pauseRotation(){
+  if(rotationTimer){
+    window.clearInterval(rotationTimer);
+    rotationTimer=null;
+  }
+}
+
+if(prevCase&&nextCase){
+  prevCase.addEventListener("click",function(){prevInteractiveCase();startRotation();});
+  nextCase.addEventListener("click",function(){nextInteractiveCase();startRotation();});
+}
+caseDots.forEach(function(dot){
+  dot.addEventListener("click",function(){
+    userInteracting=false;
+    renderInteractiveCase(+dot.dataset.caseIndex);
+    startRotation();
+  });
+});
+
+if(caseModule){
+  caseModule.addEventListener("mouseenter",pauseRotation);
+  caseModule.addEventListener("mouseleave",function(){
+    if(!userInteracting) startRotation();
+  });
+  caseModule.addEventListener("focusin",pauseRotation);
+}
+
+renderInteractiveCase(0);
+startRotation();
