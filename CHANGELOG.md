@@ -8,16 +8,18 @@ La nomenclatura sigue el formato `vMAJOR.MINOR.PATCH`:
 - **MINOR**: nueva funcionalidad, sección o evolución relevante.
 - **PATCH**: corrección o ajuste menor sin cambiar la arquitectura.
 
-## v6.1.0-beta — Leads + Performance hero
-**28 de agosto de 2026**
+## v6.1.0-beta — Hero interactivo con 3 casos
+**29 de agosto de 2026**
 
-- Prueba visual del hero con un dashboard más editorial y analítico.
-- Caso principal: **Las ventas cayeron 10%. ¿Subir presupuesto lo resolvería?**
-- KPIs visibles: Ventas -10%, Meta +25%, Leads necesarios 5,750 y CAC $100.
-- Lectura de diagnóstico: Leads, Conversión y Margen.
-- Decisión destacada: **Primero hay que recuperar conversión.**
-- Se mantiene animación interna de barras, sin movimiento del contenedor.
-- Esta versión es experimental y puede revertirse íntegramente a v6.0.0.
+- Prueba visual del hero con un laboratorio interactivo de decisiones.
+- Tres casos rotativos: **Branding + Pricing**, **Leads + Performance** y **Retención + Crecimiento**.
+- Cada caso incorpora KPIs, mini dashboard y una pregunta de decisión.
+- El usuario puede elegir entre alternativas A / B / C y recibe feedback inmediato.
+- Los casos rotan automáticamente y también pueden cambiarse manualmente.
+- Caso Branding: evaluar cuánto podría subir el precio de un pan al mejorar marca y percepción de valor.
+- Caso Leads: evaluar si subir presupuesto resuelve una caída de ventas y conversión.
+- Caso Retención: evaluar si tiene sentido seguir captando con retención de solo 10%.
+- Esta versión sigue siendo experimental y puede revertirse íntegramente a v6.0.0.
 
 ## v6.0.0 — Base estable antes de experimentos
 **28 de agosto de 2026**
