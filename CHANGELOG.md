@@ -8,6 +8,16 @@ La nomenclatura sigue el formato `vMAJOR.MINOR.PATCH`:
 - **MINOR**: nueva funcionalidad, sección o evolución relevante.
 - **PATCH**: corrección o ajuste menor sin cambiar la arquitectura.
 
+## v6.5.0-beta — Hero con imagen full-bleed en tonos azules
+**1 de septiembre de 2026**
+
+- Se elimina la ilustración tipo monitor de la prueba anterior.
+- La imagen vuelve a ocupar todo el hero como fondo, por debajo del título, texto, botones y dashboard.
+- Se aplica un tratamiento azul/navy para acercarla a la identidad visual de Marketing Labs.
+- El dashboard interactivo de tres casos se mantiene intacto y en primer plano.
+- La franja de áreas académicas conserva un fondo blanco translúcido.
+- Esta versión es experimental y puede revertirse a v6.4.0-beta o v6.1.1-beta.
+
 ## v6.4.0-beta — Hero inspirado en referencia 3
 **1 de septiembre de 2026**
 
