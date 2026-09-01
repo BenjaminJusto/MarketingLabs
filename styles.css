@@ -2094,3 +2094,19 @@ footer{padding:34px 0 44px;color:#7B8493;font-size:13px;background:#fff;margin-t
       url("https://images.unsplash.com/photo-1690191848328-7410cdf9962b?auto=format&fit=crop&fm=jpg&q=80&w=1400") center/cover no-repeat;
   }
 }
+
+
+/* v6.6.0-beta — new uploaded analytics background */
+.hero.hero-photo-blue{
+  background:
+    linear-gradient(90deg,rgba(3,18,67,.90) 0%,rgba(6,35,112,.82) 40%,rgba(23,104,255,.56) 72%,rgba(11,29,109,.72) 100%),
+    linear-gradient(180deg,rgba(4,16,58,.12),rgba(4,16,58,.34)),
+    url("assets/data%20analytics%20in%20digital%20marketing.webp") center/cover no-repeat;
+}
+@media(max-width:650px){
+  .hero.hero-photo-blue{
+    background:
+      linear-gradient(180deg,rgba(3,18,67,.92) 0%,rgba(6,35,112,.84) 46%,rgba(11,29,109,.70) 100%),
+      url("assets/data%20analytics%20in%20digital%20marketing.webp") center/cover no-repeat;
+  }
+}
