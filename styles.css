@@ -1531,3 +1531,26 @@ footer{padding:34px 0 44px;color:#7B8493;font-size:13px;background:#fff;margin-t
 
 /* Force hero title line breaks */
 .hero-title span{display:block}
+
+
+/* Keep monetary KPI values on one line */
+.visual-kpis .beta-kpi strong,
+.multi-case-window .beta-kpi strong{
+  white-space:nowrap;
+  word-break:keep-all;
+  overflow-wrap:normal;
+  font-size:clamp(18px,1.45vw,22px);
+  letter-spacing:-.035em;
+}
+.visual-kpis .beta-kpi{
+  min-width:0;
+}
+.visual-kpis .beta-kpi > div{
+  min-width:0;
+}
+@media(max-width:650px){
+  .visual-kpis .beta-kpi strong,
+  .multi-case-window .beta-kpi strong{
+    font-size:20px;
+  }
+}
