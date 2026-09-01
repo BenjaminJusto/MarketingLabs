@@ -8,6 +8,14 @@ La nomenclatura sigue el formato `vMAJOR.MINOR.PATCH`:
 - **MINOR**: nueva funcionalidad, sección o evolución relevante.
 - **PATCH**: corrección o ajuste menor sin cambiar la arquitectura.
 
+## v6.6.0-beta — Hero con nueva imagen analítica
+**1 de septiembre de 2026**
+
+- Se mantiene el tratamiento azul/navy del hero.
+- Se reemplaza la imagen de fondo por `data analytics in digital marketing.webp`, cargada en el repositorio.
+- Se conservan intactos el título, CTAs, dashboard interactivo y áreas académicas.
+- Esta versión es experimental y puede revertirse a v6.5.0-beta.
+
 ## v6.5.0-beta — Hero con imagen full-bleed en tonos azules
 **1 de septiembre de 2026**
 
