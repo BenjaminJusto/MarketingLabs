@@ -8,6 +8,14 @@ La nomenclatura sigue el formato `vMAJOR.MINOR.PATCH`:
 - **MINOR**: nueva funcionalidad, sección o evolución relevante.
 - **PATCH**: corrección o ajuste menor sin cambiar la arquitectura.
 
+## v6.1.1-beta — Ajuste de hero
+**1 de septiembre de 2026**
+
+- Se elimina la repetición de **Marketing Labs — Academy** sobre el titular del hero.
+- Nuevo titular: **Especialízate en Marketing, decide mejor.**
+- CTA principal cambia a **Ver Cursos**.
+- CTA secundario cambia a **Método de enseñanza EBC**.
+
 ## v6.1.0-beta — Hero interactivo con 3 casos
 **29 de agosto de 2026**
 
