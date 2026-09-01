@@ -8,6 +8,15 @@ La nomenclatura sigue el formato `vMAJOR.MINOR.PATCH`:
 - **MINOR**: nueva funcionalidad, sección o evolución relevante.
 - **PATCH**: corrección o ajuste menor sin cambiar la arquitectura.
 
+## v6.2.0-beta — Hero con fondo fotográfico
+**1 de septiembre de 2026**
+
+- Prueba visual del hero con fotografía de equipo/whiteboard de marketing.
+- Overlay oscuro para conservar legibilidad del titular y CTAs.
+- Se mantiene intacto el dashboard interactivo de tres casos.
+- La franja de áreas académicas conserva fondo claro para separar contenidos.
+- Esta versión es experimental y puede revertirse a v6.1.1-beta.
+
 ## v6.1.1-beta — Ajuste de hero
 **1 de septiembre de 2026**
 
