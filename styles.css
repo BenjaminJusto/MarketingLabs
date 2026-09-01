@@ -1527,3 +1527,7 @@ footer{padding:34px 0 44px;color:#7B8493;font-size:13px;background:#fff;margin-t
   .decision-options{grid-template-columns:1fr}
   .decision-choice{min-height:auto}
 }
+
+
+/* Force hero title line breaks */
+.hero-title span{display:block}
